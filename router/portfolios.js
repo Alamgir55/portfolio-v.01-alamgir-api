@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const {getPortfolios} = require('../controllers/portfolios')
 
-router.get('', (req, res) => {
-  return res.json({data: [1,2,3]})
-})
+router.get('', getPortfolios);
 
 module.exports = router;
