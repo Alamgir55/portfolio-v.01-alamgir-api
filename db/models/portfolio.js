@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const portfolioSchema = new Schema({
-  title: { type: String },
+  title: { type: String, require: true },
   descriptionn: String
 });
 
