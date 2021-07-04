@@ -21,11 +21,21 @@ exports.createPortfolio = async (req, res) => {
   const userId = 'google-oauth2|104833915292571058204';
   const portfolio = new Portfolio(portfolioData);
   portfolio.userId = userId;
-
   try {
     const newPortfolio = await portfolio.save();
     return res.json(newPortfolio);
   } catch(error){
+    return res.status(422).send(error.message);
+  }
+}
+
+exports.updatePortfolio = async (req, res) => {
+  const { body, params: {id} } = req;
+
+  try {
+    const updatePortfolio = await Portfolio.findOneAndUpdate({_id: id}, body, {new: true, runValidators: true});
+    return res.json(updatePortfolio);
+  } catch (error) {
     return res.status(422).send(error.message);
   }
 }
