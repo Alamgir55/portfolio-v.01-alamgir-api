@@ -33,9 +33,14 @@ exports.updatePortfolio = async (req, res) => {
   const { body, params: {id} } = req;
 
   try {
-    const updatePortfolio = await Portfolio.findAndModify({_id: id}, body, {new: true, runValidators: true});
+    const updatePortfolio = await Portfolio.findOneAndUpdate({_id: id}, body, {new: true, runValidators: true});
     return res.json(updatePortfolio);
   } catch (error) {
     return res.status(422).send(error.message);
   }
+}
+
+exports.deletePortfolio = async (req, res) => {
+  const portfolio = await Portfolio.findOneAndRemove({_id: req.params.id});
+  return res.json({_id: portfolio.id});
 }
