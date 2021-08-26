@@ -17,7 +17,8 @@
     "g": "^2.0.1",
     "jwks-rsa": "^2.0.3",
     "mongoose": "^5.12.10",
-    "pnpm": "^6.4.0"
+    "pnpm": "^6.4.0",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
