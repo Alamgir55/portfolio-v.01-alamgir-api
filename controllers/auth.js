@@ -2,7 +2,6 @@
 const jwt = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
 const request = require('request');
-const { AUTH0_AUDIENCE } = require('../config/dev');
 const config = require('../config/dev');
 
 // Authentication middleware
